@@ -1,65 +1,58 @@
-
+import React from 'react'
+// import ReactDom from 'react-dom/client'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
-import { Children, useState } from 'react'
-import ReactDOM from 'react-dom/client'
-
-import {Route,RouterProvider,createBrowserRouter,createRoutesFromElements} from 'react-router-dom'
-
-import Layout from './layout.jsx'
-import Home from './Home.jsx'
-import Aboutus from './components/About/About.jsx'
+// import App from './App.jsx'
+import { Route,RouterProvider,createBrowserRouter,createRoutesFromElements } from 'react-router-dom'
+import Layout from './Layout.jsx'
+import Home from './Components/Home/Home.jsx'
+import Aboutus from './Components/Aboutus/Aboutus.jsx'
 import Contact from './components/Contact/Contact.jsx'
-import User from './components/User'
-import Footer from './Footer'
+import User from './components/User/User.jsx'
 
 
-// const router = createBrowserRouter([
-//   {
-//     path : '/',
-//     element :<Layout/>
-//     children:[
-// {
-//   path : '',
-//     element :<Home/>
-// },
-// {
-//   path : 'aboutus',
-//     element :<Aboutus/>
-// },
-// {
-//   path : 'contact',
-//     element :<Contact/>
-// },
-// {
-//   path : 'footer',
-//     element :<Footer/>
-// },
-// {
-//   path : 'header',
-//     element :<Header/>
-// }
-//     ]
-//   }
-// ])
+  // const router = createBrowserRouter([
+  //  {
+  //    path: '/',
+  //    element: <Layout/>,
+  //    children: [
+  //  {
+  //    path: '/',
+  //    element: <Home/>
+  //  },
+  //  {
+  //    path: 'about',
+  //    element: <Aboutus/>
+  //  },
+  //  {
+  //    path: 'contact',
+  //    element: <Contactus/>
+  //  },
+  //    ] 
+  //  } 
+  // ])
 
-// createRoot(document.getElementById('root')).render(
-  
-//     <App />
-  
-// )
 
-const routers = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
+
+  const router = createBrowserRouter(createRoutesFromElements(
+    <Route path="/" element={<Layout />} >
       <Route path="/" element={<Home />} />
-      <Route path="/aboutus" element={<Aboutus />} />
+      <Route path="/about" element={<Aboutus />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/footer" element={<Footer />} />
-      <Route path="/header" element={<Header />} />
-    </Route>
-  )
-)
+      <Route path="/user/:userid" element={<User />} />
+       <Route
+       />
+    </Route>  // Replace <App /> with your root component
+  ))
 
-createRoot
+
+
+
+
+createRoot(document.getElementById('root')).render(
+  // <StrictMode>
+    <RouterProvider router = {router} />
+      
+      // Replace  with your root component
+  // </StrictMode>,
+);
